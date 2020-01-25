@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@material-ui/core';
 
-function VendaFormUpdate({ movimentacao, onCancela, onUpdateForm }) {
-    const { atualMovimentacao, setAtualMovimentacao } = useState('');
-    const { vendedor, setVendedor } = useState('');
-    const { datavenda, setDataVenda } = useState('');
-    const { valortotal, setValorTotal } = useState('');
+function VendaFormUpdate({ onUpdataForm, onCancela, venda }) {
+    const [ atualMovimentacao, setAtualMovimentacao ] = useState('');
+    const [ pessoa_id, setPessoaId ] = useState('');
+    const [ datavenda, setDataVenda ] = useState('');
+    const [ valortotal, setValorTotal ] = useState('');
 
     useEffect(() => {
-        setAtualMovimentacao(movimentacao);
-    }, [movimentacao, setAtualMovimentacao]);
+        setAtualMovimentacao(venda);
+    }, [venda]);
 
     async function handleSubmit(event) {
+        console.log(pessoa_id);
         event.preventDefault();
-        await onUpdateForm({
-            vendedor,
+        await onUpdataForm({
+            pessoa_id : atualMovimentacao.pessoa_id,
             datavenda,
             valortotal,
         });
@@ -26,18 +27,11 @@ function VendaFormUpdate({ movimentacao, onCancela, onUpdateForm }) {
     return (
         <form id="edit-form" onSubmit={handleSubmit}>
             <div className="input-block">
-                <labe htmlFor="pessoaid">Vendedor: {atualMovimentacao}</labe>
-                <input 
-                    name="vendedor" 
-                    id="vendedor" 
-                    required
-                    value={vendedor}
-                    onChange={event => setVendedor(event.target.value)}
-                />
+                <label htmlFor="">Vendedor:{atualMovimentacao.pessoa_id} </label>
             </div>
 
             <div className="input-block">
-                <labe htmlFor="datavenda">Data</labe>
+                <label htmlFor="datavenda">Data</label>
                 <input
                     type="date"
                     name="datavenda"
@@ -49,7 +43,7 @@ function VendaFormUpdate({ movimentacao, onCancela, onUpdateForm }) {
             </div>
 
             <div className="input-block">
-                <labe htmlFor="valortotal">Valor</labe>
+                <label htmlFor="valortotal">Valor</label>
                 <input
                     name="valortotal"
                     id="valortotal"

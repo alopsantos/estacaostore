@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
 
-function VendaFormAddd({ movimentacao, onSubmit }) {
-    const { pessoaid, setPessoaId } = useState('');
-    const { datavenda, setDataVenda } = useState('');
-    const { valortotal, setValorTotal } = useState('');
+function VendaFormAddd({ onSubmit }) {
+    const [ pessoa_id, setPessoaId ] = useState('');
+    const [ datavenda, setDataVenda ] = useState('');
+    const [ valortotal, setValorTotal ] = useState('');
 
     async function handleAddMovimentacao(event) {
         event.preventDefault();
         await onSubmit({
-            pessoaid,
+            pessoa_id,
             datavenda,
             valortotal,
         });
+        setPessoaId('');
+        setDataVenda('');
+        setValorTotal('');
     }
     return (
         <form id="edit-form" onSubmit={handleAddMovimentacao}>
             <div className="input-block">
-                <labe htmlFor="pessoaid">Vendedor</labe>
+                <label htmlFor="pessoa_id">Vendedor</label>
                 <input 
-                    name="pessoaid"
-                    id="pessoaid"
+                    name="pessoa_id"
+                    id="pessoa_id"
                     required
-                    value={pessoaid}
+                    value={pessoa_id}
                     onChange={event => setPessoaId(event.target.value)}
                  />
             </div>
 
             <div className="input-block">
-                <labe htmlFor="datavenda">Data</labe>
+                <label htmlFor="datavenda">Data</label>
                 <input 
                     type="date" 
                     name="datavenda" 
@@ -39,10 +42,10 @@ function VendaFormAddd({ movimentacao, onSubmit }) {
             </div>
 
             <div className="input-block">
-                <labe htmlFor="valortotal">Valor</labe>
+                <label htmlFor="valortotal">Valor</label>
                 <input 
-                    name="valor" 
-                    id="valor" 
+                    name="valortotal" 
+                    id="valortotal" 
                     required
                     value={valortotal}
                     onChange={event => setValorTotal(event.target.value)}

@@ -10,7 +10,7 @@ import VendaFormUpdate from '../../components/Vendas/VendaFormUpdate';
 function Venda() {
     const [movimentacoes, setMovimentacoes] = useState([]);
     const [atualMovimentacao, setAtualMovimentacao] = useState('');
-    const [editMode, setEditModde] = useState(false);
+    const [editMode, setEditMode] = useState(false);
 
     async function loadMovimentacoes() {
         const response = await api.get('/movimentacoes');
@@ -18,10 +18,11 @@ function Venda() {
     }
 
     useEffect(() => {
-        loadMovimentacoes()
+        loadMovimentacoes();
     }, []);
+
     async function handleAddMovimentacao(data) {
-        const response = await api.post(`/pessoas/1/movimentacao`, data);
+        const response = await api.post(`/pessoas/${data.pessoa_id}/movimentacao`, data);
         setMovimentacoes([response.data, ...movimentacoes]);
     }
     async function handleUpdate(data) {
@@ -32,10 +33,10 @@ function Venda() {
     }
 
     async function handleDelete(data) {
-        await api.delete(`/movimentacoes/${atualMovimentacao.id}`, data);
+        await api.delete(`/movimentacoes/${data.id}`, data);
         const filterMovimentacao = movimentacoes.filter(movimentacao => movimentacao.id !== data.id);
 
-        setMode(filterMovimentacao);
+        setMovimentacoes(filterMovimentacao);
     }
 
     function loadMode() {
@@ -43,7 +44,7 @@ function Venda() {
             return (
                 <aside>
                     <strong>Editar Venda</strong>
-                    <VendaFormUpdate onUpdataForm={handleUpdate} onCancela={setMode} movimentacao={atualMovimentacao} />
+                    <VendaFormUpdate onUpdataForm={handleUpdate} onCancela={setMode} venda={atualMovimentacao} />
                 </aside>
             )
         } else {
@@ -57,10 +58,10 @@ function Venda() {
     }
     function setMode(data) {
         if (!editMode) {
-            setEditModde(true);
+            setEditMode(true);
             setAtualMovimentacao(data);
         } else {
-            setEditModde(false);
+            setEditMode(false);
         }
     }
     return (
@@ -68,8 +69,8 @@ function Venda() {
             {loadMode()}
             <main>
                 <ul>
-                    {movimentacoes.map(movimentacao => (
-                        <VendaItem key={movimentacao.id} movimentacao={movimentacao} onDeleteForm={handleDelete} onUpdateClick={setMode} />
+                    {movimentacoes.map(venda => (
+                        <VendaItem key={venda.id} venda={venda} onDeleteForm={handleDelete} onUpdateClick={setMode} />
                     ))}
                 </ul>
             </main>
