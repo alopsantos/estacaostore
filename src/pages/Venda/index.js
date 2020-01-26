@@ -13,7 +13,7 @@ function Venda() {
     const [editMode, setEditMode] = useState(false);
 
     async function loadMovimentacoes() {
-        const response = await api.get('/movimentacoes');
+        const response = await api.get('/searchmovimentacaos');
         setMovimentacoes(response.data);
     }
 
@@ -38,7 +38,6 @@ function Venda() {
 
         setMovimentacoes(filterMovimentacao);
     }
-
     function loadMode() {
         if (editMode) {
             return (

@@ -25,7 +25,7 @@ aside form {
     margin-top: 20px;
   }
   aside form .input-block input{
-      border: 0;
+    border: 0;
     border-bottom: 1px solid #eee;
     border-radius: 2px;
     color: #666;
@@ -48,6 +48,16 @@ aside form {
     padding: 15px 20px;
     transition: background 0.5s;
     width: 100%;
+  }
+  aside form .input-block select{
+    width: 100%;
+    padding: 10px 10px;
+    height: 40px;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
   }
   aside form .input-group button[type=submit]:hover{
     background: #8e35ca;
@@ -97,9 +107,9 @@ aside form {
     color: #5a2ea6;
   }
   
-  li .venda-edit {
+  /*li .venda-edit {
     display: flex;
-  }
+  }*/
   
   li .venda-edit button{    
     background: #7d40e7;
