@@ -1,0 +1,127 @@
+
+aside form {
+    margin-top: 30px;
+  }
+  
+  aside form .input-block + .input-block{
+    margin-top: 20px;
+  }
+  
+  aside form .input-group .input-block{
+    margin-top: 0;
+  }
+  
+  aside form .input-block label{
+    color: #ACACAC;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+  aside form .input-group{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+  }
+  aside form .input-block input{
+    border: 0;
+    border-bottom: 1px solid #eee;
+    border-radius: 2px;
+    color: #666;
+    font-size: 14px;
+    height: 32px;
+    margin-top: 5px;
+    padding-left: 13px;
+    width: 100%;
+  }
+  
+  aside form .input-group button[type=submit]{
+    background: #7d40e7;
+    border-radius: 2px;
+    border: 0;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding: 15px 20px;
+    transition: background 0.5s;
+    width: 100%;
+  }
+  aside form .input-block select{
+    width: 100%;
+    padding: 10px 10px;
+    height: 40px;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+  }
+  aside form .input-group button[type=submit]:hover{
+    background: #8e35ca;
+  }
+  li.venda-item{
+    background: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 0 14px 0 rgba(0,0,0, 0.2);
+    padding: 20px;
+  }
+  li.venda-item header{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+  li.venda-item header img{
+    border-radius: 50%;
+    height: 54px;
+    width: 54px;
+  }
+  li.venda-item header .venda-info{
+    margin-left: 10px;
+  }
+  .venda-info strong{
+    color: #333;
+    display: block;
+    font-size: 16px;
+  }
+  .venda-info span{
+    color: rgb(102, 102, 102);
+    display: block;
+    font-size: 13px;
+    margin-top: 13px;
+  }
+  li.venda-item p{
+    color: #666;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 0;
+  }
+  li.venda-item a{
+    color: #8e4dff;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  li.venda-item a:hover{
+    color: #5a2ea6;
+  }
+  
+  /*li .venda-edit {
+    display: flex;
+  }*/
+  
+  li .venda-edit button{    
+    background: #7d40e7;
+    border-radius: 2px;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+    padding:5px 0;
+    transition: background 0.8s;
+  }
+  
+  li .venda-edit button:hover{
+      background: #9a6bec;
+  }
