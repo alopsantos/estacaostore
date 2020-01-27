@@ -13,7 +13,8 @@ function Venda() {
     const [editMode, setEditMode] = useState(false);
 
     async function loadMovimentacoes() {
-        const response = await api.get('/searchmovimentacaos');
+        const { dataatual } = new Date();
+        const response = await api.get('/searchmovimentacaos', dataatual);
         setMovimentacoes(response.data);
     }
 

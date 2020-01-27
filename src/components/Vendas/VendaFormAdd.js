@@ -6,10 +6,7 @@ function VendaFormAddd({ onSubmit }) {
     const [ pessoa_id, setPessoaId ] = useState('');
     const [ datavenda, setDataVenda ] = useState('');
     const [ valortotal, setValorTotal ] = useState('');
-    
-    //const [ tipomovimentacao_id, setTipoMovimentacaoId ] = useState('');
-    //const [ tipopagamento_id, setTipoPagamentoId ] = useState('');
-    
+
     async function handleAddMovimentacao(event) {
         
         event.preventDefault();
@@ -26,7 +23,6 @@ function VendaFormAddd({ onSubmit }) {
         setValorTotal('');
     }
     async function carregarVendedor() {
-        //const codigosetor = localStorage.getItem('codigosetor');
         const response = await api.get('/pessoas');
 
         setVendedores(response.data);
@@ -51,6 +47,7 @@ function VendaFormAddd({ onSubmit }) {
             <div className="input-block">
                 <label htmlFor="datavenda">Data</label>
                 <select id="pessoa_id" required onChange={event => setPessoaId(event.target.value)} >
+                    <option>Selecione o vendedor</option>
                     {vendedores.map(vendedor => (
                         <option key={vendedor.id} value={`${vendedor.id}`} >
                             {vendedor.id} - {vendedor.nome}
@@ -58,7 +55,6 @@ function VendaFormAddd({ onSubmit }) {
                     ))}
                 </select>
             </div>
-
             <div className="input-block">
                 <label htmlFor="valortotal">Valor</label>
                 <input 

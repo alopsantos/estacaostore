@@ -10,7 +10,6 @@ function VendaFormUpdate({ onUpdataForm, onCancela, venda }) {
     useEffect(() => {
         setAtualMovimentacao(venda);
     }, [venda]);
-
     async function handleSubmit(event) {
         console.log(pessoa_id);
         event.preventDefault();
@@ -27,7 +26,7 @@ function VendaFormUpdate({ onUpdataForm, onCancela, venda }) {
     return (
         <form id="edit-form" onSubmit={handleSubmit}>
             <div className="input-block">
-                <label htmlFor="">Vendedor:{atualMovimentacao.pessoa_id} </label>
+                <label htmlFor="">Vendedor: {atualMovimentacao.pessoanome} </label>
             </div>
 
             <div className="input-block">

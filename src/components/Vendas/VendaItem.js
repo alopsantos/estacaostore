@@ -4,9 +4,9 @@ import { Edit, Delete } from '@material-ui/icons';
 import { Button } from '@material-ui/core';
 
 function VendaItem({ venda, onDeleteForm, onUpdateClick  }) {
-    const { id, pessoa_id, pessoa, datavenda, valortotal } = venda;
+    const { id, pessoa_id, pessoanome, datavenda, valortotal } = venda;
     async function handleUpdateState(){
-        await onUpdateClick({ id, pessoa_id });
+        await onUpdateClick({ id, pessoa_id, pessoanome });
     }
     async function handleDelete(){
         await onDeleteForm({ id });
@@ -17,7 +17,7 @@ function VendaItem({ venda, onDeleteForm, onUpdateClick  }) {
             <header>
                 <img src="https://avatars2.githubusercontent.com/u/4048207?s=460&v=4" alt="teste" />
                 <div className="venda-info">
-                    <strong>{pessoa.nome}</strong>
+                    <strong>{pessoanome}</strong>
                     <span><b>Hoje: </b>R$ {valortotal}</span>
                     <span><b>Data: </b>{ParserDataAsArray(datavenda)}</span>
                 </div>
