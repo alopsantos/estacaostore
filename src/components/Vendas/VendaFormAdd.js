@@ -15,7 +15,6 @@ function VendaFormAddd({ onSubmit }) {
         event.preventDefault();
         await onSubmit({
             pessoa_id,
-            data: `${new Date()}`,
             datavenda,
             valortotal,
             tipomovimentacao_id : 2,

@@ -17,7 +17,7 @@ function VendaItem({ venda, onDeleteForm, onUpdateClick  }) {
             <header>
                 <img src="https://avatars2.githubusercontent.com/u/4048207?s=460&v=4" alt="teste" />
                 <div className="venda-info">
-                    <strong>{pessoa.nome}</strong>
+                    <strong>{pessoa_id}</strong>
                     <span><b>Hoje: </b>R$ {valortotal}</span>
                     <span><b>Data: </b>{ParserDataAsArray(datavenda)}</span>
                 </div>
